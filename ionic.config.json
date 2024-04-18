@@ -1,0 +1,7 @@
+{
+  "name": "OrderOnlineManagerClient",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
