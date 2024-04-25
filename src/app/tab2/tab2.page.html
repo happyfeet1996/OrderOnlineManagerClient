@@ -1,17 +1,25 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button id="productsManagerOptions">
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-popover trigger="productsManagerOptions" [dismissOnSelect]="true" size="auto">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item [button]="true" [detail]="false" (click)="gotoAdd()">添加商品</ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
     <ion-title>
-      Tab 2
+      商品列表
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content [fullscreen]="false">
+  <app-products-list #productsList></app-products-list>
 </ion-content>

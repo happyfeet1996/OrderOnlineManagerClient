@@ -1,0 +1,28 @@
+<cus-refresher style="height: 100%;" [direction]="'up'" [canActive]="hasMore"
+  [endReachedRefresh]="state.endReachedRefresh" (onRefresh)="pullToRefresh($event)">
+  <ion-row *ngFor="let row of getRowCount(); let rowIndex=index">
+    <ion-col [size]="6" *ngFor="let commodity of commodities.slice(rowIndex * 2, rowIndex * 2 + 2)">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{commodity.name}}</ion-card-title>
+          <ion-card-subtitle>
+            价格：{{commodity.price}}
+            <br>
+            库存：{{commodity.inventory}}{{commodity.unit}}
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          {{commodity.description}}
+        </ion-card-content>
+        <ion-button fill="clear">编辑</ion-button>
+        <ion-button fill="clear">查看</ion-button>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="!hasMore">
+    <ion-col>
+      <p class="bottom-line">---我是有底线的---</p>
+    </ion-col>
+  </ion-row>
+</cus-refresher>
